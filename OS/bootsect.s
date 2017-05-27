@@ -13,7 +13,7 @@ start:
 	mov cx, #256
 	sub si, si				sub di,di ;将0x07c0:0x0000处的256个字移动到0x9000:0x0000处
 	rep		move
-	jmpi	go, INITSEG	；go:IP,INITSEG:CS
+	jmpi	go, INITSEG	；go:IP,INITSEG:CS (cs<<4+ip)
 	
 ;cs=INITSEG,ip=go
 go:	mov as, cs ;cs=0x9000	
